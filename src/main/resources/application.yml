@@ -5,9 +5,22 @@ spring:
   application:
     name: Naming-Server
 
+#eureka:
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#  instance:
+#    hostname: localhost
+
+#Kubernetes
+
 eureka:
+  instance:
+    hostname: "${HOSTNAME}.eureka"
+
   client:
     register-with-eureka: false
     fetch-registry: false
-  instance:
-    hostname: localhost
+    serviceUrl:
+      defaultZone: "${EUREKA_SERVER_ADDRESS}"
+
